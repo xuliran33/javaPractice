@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+// 测试游人类
+public class VisitorText {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		do {
+			Visitor v = new Visitor();
+			System.out.println("请输入乘客姓名");
+			v.name = input.next();
+			
+			System.out.println("请输入乘客年龄");
+			v.age = input.nextInt();
+			
+			v.getPrice();
+		} while (input.next().equals("y"));
+	}
+}
