@@ -1,7 +1,0 @@
-// 榨汁机类
-public class ZhaZhiJi {
-	// 方法: 榨汁
-	public String zhaZhi(String fruit) {
-		return fruit + "汁";
-	}
-}

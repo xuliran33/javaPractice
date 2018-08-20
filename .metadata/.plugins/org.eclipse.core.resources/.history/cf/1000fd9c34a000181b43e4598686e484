@@ -1,7 +1,0 @@
-// 榨汁机的测试类
-public class TextZhazhi {
-	public static void main(String[] args) {
-		ZhaZhiJi ji = new ZhaZhiJi();
-		System.out.println(ji.zhaZhi("苹果"));
-	}
-}
