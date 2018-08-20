@@ -6215,3 +6215,34 @@ Binding(ALT+COMMAND+W,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
+!SESSION 2018-08-20 14:19:11.468 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/yuedao/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/yuedao/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-08-20 14:20:15.649
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2018-08-20 14:20:21.305
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-08-20 14:20:21.305
+!MESSAGE A conflict occurred for ALT+COMMAND+W:
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(com.ahtik.wordwrap.toggleCommand,Word Wrap,
+		Word Wrap,
+		Category(com.ahtik.wordwrap,Word Wrap,Word Wrap,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@627d35ff,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.showInQuickMenu,Show In...,
+		Open the Show In menu,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7157413e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
