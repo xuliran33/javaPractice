@@ -1,0 +1,30 @@
+package com.xlr.extend;
+/**
+ * 子类继承了父类中用public和protected修饰的属性和方法
+ * 继承默认权限修饰符修饰的属性和方法, 但子类和父类必须在同一个包里
+ * 不能继承的 private修饰的, 不同包内默认修饰符修饰的, 构造方法(可调用, 不能继承)
+ * */
+public class Pet {
+	private String name;
+	private int age;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	
+	public void print() {
+		System.out.println("name :" + name + "," + "age" + age);
+	}
+}
