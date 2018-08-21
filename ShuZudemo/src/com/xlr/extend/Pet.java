@@ -8,6 +8,15 @@ public class Pet {
 	private String name;
 	private int age;
 	
+	public Pet() {
+		
+	}
+	
+	public Pet(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -25,6 +34,7 @@ public class Pet {
 	}
 	
 	public void print() {
+		
 		System.out.println("name :" + name + "," + "age" + age);
 	}
 }

@@ -44,3 +44,4 @@ captures/
 /.metadata/
 
 *.DS_Store
+/.recommenders/
