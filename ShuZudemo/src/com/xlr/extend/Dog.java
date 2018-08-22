@@ -10,30 +10,27 @@ package com.xlr.extend;
  * 单继承 java类只能有一个直接父类, 一个类可以有多个间接父类, 调用间接父类的方法, 使用super.即可
  * */
 public class Dog extends Pet {
-	private int health;
+	
 	
 	public Dog(String name, int age, int health) {
 		super(name, age);
-		this.health = health;
+		this.setHealth(health);
 	}
 	
-	public void setHealth(int health) {
-		if (health < 0) {
-			this.health = 0;
-		}else if(health > 100) {
-			this.health = 100;
-		}else {
-			this.health = health;
-		}
-	}
-	
-	public int getHealth() {
-		return this.health;
-	}
+
 	
 	public void print() {
 		// TODO Auto-generated method stub
 		super.print();
-		System.out.println("健康值" + this.health);
+		System.out.println("健康值" + this.getHealth());
+	}
+	
+	@Override
+	public void toHospital() {
+		super.toHospital();
+		if (this.getHealth() < 50) {
+			System.out.println("打针,吃药");
+			this.setHealth(60);
+		}
 	}
 }

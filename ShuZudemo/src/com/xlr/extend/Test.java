@@ -6,7 +6,14 @@ public class Test {
 //		dog.setName("Tom");
 //		dog.setAge(10);
 //		dog.print();
-		Dog dog = new Dog("Tom", 10, 100);
+		Dog dog = new Dog("Tom", 10, 30);
 		dog.print();
+		
+		Master master = new Master();
+		master.cure(dog);
+		
+		Pet penguin = new Penguin();
+		master.cure(penguin);
+		System.out.println(penguin.getHealth());
 	}
 }

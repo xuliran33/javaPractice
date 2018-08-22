@@ -7,7 +7,16 @@ package com.xlr.extend;
 public class Pet {
 	private String name;
 	private int age;
+	private int health;
 	
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
 	public Pet() {
 		
 	}
@@ -36,5 +45,9 @@ public class Pet {
 	public void print() {
 		
 		System.out.println("name :" + name + "," + "age" + age);
+	}
+	
+	// 生病去医院
+	public void toHospital() {
 	}
 }
