@@ -12,6 +12,7 @@ public class Test {
 		Master master = new Master();
 		master.cure(dog);
 		
+		// 父类引用指向子类对象
 		Pet penguin = new Penguin();
 		master.cure(penguin);
 		System.out.println(penguin.getHealth());
