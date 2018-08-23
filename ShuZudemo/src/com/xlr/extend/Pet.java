@@ -49,8 +49,10 @@ public abstract class Pet {
 	
 	// 生病去医院, 抽象方法, 没有方法体, 必须在抽象类里
 	// 有抽象方法的类一定是抽象类, 抽象类里不一定有抽象方法
-	// 抽象类不能实例化 Pet pet = new Pet(); 报错
+	// 抽象类不能实例化 Pet pet = new Pet(); 报错, 但是可以引用指向子类普通类
 	// 抽象类的子类可以是普通类, 该普通类要实现抽象类中的抽象方法
 	// 抽象类的子类也可以是抽象类, 此时, 父类中的抽象方法可以在子类中不被实现
 	public abstract void toHospital();
+	
+	public abstract void eat();
 }

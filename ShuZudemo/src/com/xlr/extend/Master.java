@@ -14,4 +14,13 @@ public class Master {
 	public void cure(Pet pet) {
 		pet.toHospital();
 	}
+	
+	// 为宠物喂食
+	public void feed(Pet pet) {
+		if (pet.getHealth() > 100) {
+			System.out.println(pet.getName() + "已经吃饱了, 不需要喂食");
+		}else {
+			pet.eat();
+		}
+	}
 }

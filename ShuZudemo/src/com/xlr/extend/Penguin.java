@@ -19,10 +19,16 @@ public class Penguin extends Pet {
 	@Override
 	public void toHospital() {
 		// TODO Auto-generated method stub
-		super.toHospital();
 		if (this.getHealth() < 50) {
 			System.out.println("吃药, 疗养");
 			this.setHealth(70);
 		}
+	}
+	
+	@Override
+	public void eat() {
+		System.out.println("吃条小鱼");
+		this.setHealth((this.getHealth() + 5) > 100 ? 100 : (this.getHealth() + 5));
+		
 	}
 }

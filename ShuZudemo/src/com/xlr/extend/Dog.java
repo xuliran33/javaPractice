@@ -27,10 +27,17 @@ public class Dog extends Pet {
 	
 	@Override
 	public void toHospital() {
-		super.toHospital();
+
 		if (this.getHealth() < 50) {
 			System.out.println("打针,吃药");
 			this.setHealth(60);
 		}
+	}
+	
+	@Override
+	public void eat() {
+		System.out.println("吃根骨头");
+		this.setHealth((this.getHealth() + 3) > 100 ? 100 : (this.getHealth() + 3));
+		
 	}
 }
