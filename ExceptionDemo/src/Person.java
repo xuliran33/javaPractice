@@ -1,7 +1,7 @@
 
 public class Person {
 	private String name;
-	private String age;
+	private int age;
 	private String sex;
 	
 	// 输出个人信息
@@ -16,11 +16,16 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
-		this.age = age;
+	public void setAge(int age) throws AgeException{
+		if (age > 0 && age <= 100) {
+			this.age = age;
+		}else {
+			throw new AgeException("年龄异常");
+		}
+		
 	}
 	public String getSex() {
 		return sex;
@@ -38,6 +43,12 @@ public class Person {
 		try {
 			p.setSex("boy");
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			p.setAge(100);
+		} catch (AgeException e) {
 			e.printStackTrace();
 		}
 		
