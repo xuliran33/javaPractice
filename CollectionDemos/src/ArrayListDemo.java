@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 // 实现新闻管理系统
 /*
@@ -57,5 +58,14 @@ public class ArrayListDemo {
 		list.clear();
 		System.out.println("清空后" + list.size());
 		System.out.println("判断list是否为空" + list.isEmpty());
+		
+		System.out.println("********************Iterator迭代器");
+		Iterator iter = list.iterator();
+		while (iter.hasNext()) {
+			NewsTitle t = (NewsTitle) iter.next();
+			t.print();
+		}
 	}
+	
+	
 }
