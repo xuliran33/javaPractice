@@ -28,7 +28,7 @@ public class ArrayListDemo {
 		NewsTitle t4 = new NewsTitle(4, "晴天了4", "admin");
 		NewsTitle t5 = new NewsTitle(5, "晴天了5", "admin");
 		
-		ArrayList list = new ArrayList();
+		ArrayList<NewsTitle> list = new ArrayList<NewsTitle>();
 		list.add(t1);
 		list.add(t2);
 		list.add(t3);
@@ -39,12 +39,11 @@ public class ArrayListDemo {
 		
 		System.out.println("****************方法1");
 		for (int i = 0; i < list.size(); i++) {
-			NewsTitle t = (NewsTitle)list.get(i);
+			NewsTitle t = list.get(i);
 			t.print();
 		}
 		System.out.println("****************方法2");
-		for (Object object : list) {
-			NewsTitle t = (NewsTitle)object;
+		for (NewsTitle t : list) {
 			t.print();
 		}
 		System.out.println("****************");
@@ -60,9 +59,9 @@ public class ArrayListDemo {
 		System.out.println("判断list是否为空" + list.isEmpty());
 		
 		System.out.println("********************Iterator迭代器");
-		Iterator iter = list.iterator();
+		Iterator<NewsTitle> iter = list.iterator();
 		while (iter.hasNext()) {
-			NewsTitle t = (NewsTitle) iter.next();
+			NewsTitle t = iter.next();
 			t.print();
 		}
 	}
