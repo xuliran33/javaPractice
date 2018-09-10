@@ -1,6 +1,8 @@
 package com.xlr.deadlock;
 /**
  * 模拟死锁
+ * 两个线程都在等待对方先完成, 造成程序的停滞
+ * 死锁的条件 -- 两个或两个以上的线程在活动, 摸个线程拿到一个锁以后, 还想那第二个锁, 造成锁的嵌套
  * */
 public class Test {
 	public static void main(String[] args) {
