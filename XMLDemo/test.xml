@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<!-- 学生信息
+			注意事项:所有XML元素都必须有结束标签
+					XML标签对大小写敏感
+					XML必须正确的嵌套
+					同级标签以缩紧对其
+					元素名称可以包含字母数字或其他的字符串
+					元素名称不能以数字或者标点符号开始
+					元素名称中不能含空格
+			转义符列表
+				<	&lt;
+				> 	&gt;
+				" 	&quot;
+				'	&apos;
+				&	&amp;
+				当元素中出现很多特殊字符时, 可以使用CDATA节, 如下
+	 -->
+	<sturdent id="s1">
+		<name>张三</name>
+		<age>18</age>
+	</sturdent>
+	<sturdent id="s2">
+		<name>李四</name>
+		<age>20</age>
+	</sturdent>
+	<test>
+		<![CDATA[我们上面的标签包含了<student></student>]]>
+	</test>
+	
+</students>
