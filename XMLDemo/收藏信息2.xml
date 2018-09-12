@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PhoneInfo>
+	<brand name="华为">
+		<type name="U8650"/>
+		<type name="U8651"/>
+		<type name="U8652"/>
+	</brand>
+	<brand name="苹果">
+		<type name="iPhone6"/>
+		<type name="iPhone6p"/>
+		<type name="iPhone7"/>
+	</brand>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</PhoneInfo>
