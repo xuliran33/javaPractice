@@ -1,0 +1,124 @@
+一 数据库总览
+关系型数据库(SQL): 把数据存放在表中,方便进行连接的查询 不足: 大量数据写入, 数据变更, 不利于数据的分散
+	MySQL, Oracle, SQL Server, SQLite, DB2
+非关系型数据库(NOSQL): 数据独立设计
+	Redis, MongoDB
+DBMS (Database Management System): 数据库管理系统
+MySQL 简介
+	是现流行的开源的免费的关系型数据库
+	特点:
+		免费, 开源数据库
+		小巧, 功能齐全
+		使用便捷
+		可运行于Windows或Linux操作系统
+		可适用于中小型, 甚至大型网站应用
+连接数据库 mysql -h服务器主机名 -u用户名 -p密码
+显示数据库 show databases;
+使用数据库 use 数据库名字;
+显示数据库下的表 show tables;
+查看表中数据 select *from 表名\G;
+如何通过命令更改用户信息 (1)use 数据库;
+					 (2)update 表名 set 要更改的字段='新的值' where 被更改的数据指定字段='值'
+					 例如 use mysql;
+					 	 update user set password='1234' where user='root';
+					 (3)flush privileges; 更新数据
+退出exit;
+? 命令(可以寻求帮助)
+
+二 SQL语句[]中的语句可写可不写
+(1)创建数据库 create database [if not exists] 数据库名;
+(2)删除数据库 drop database [if exists] 数据库名;
+(3)创建表 create table [if not exists] `表名`(
+	`字段名1` 列类型[属性][索引][注释],
+	`字段名2` 列类型[属性][索引][注释],
+	......
+	`字段名n` 列类型[属性][索引][注释]
+)[表类型][表字符集][注释];
+	`为反引号, 区分mysql保留字段
+	表类型: 常用 InnoDB, MyISAM, HEAP, BOB, CSV等
+数据表的存储位置
+InnoDB 存储位置
+修改表名 ALERT TABLE 旧表名 RENAME AS 新表名;
+添加字段 ALERT TABLE 表名	ADD 	字段名 列类型[属性]
+修改字段 ALERT TABLE 表名	MODIFY 	字段名 列类型[属性]
+	    ALERT TABLE 表名	CHANGE 旧字段名 新字段名 列类型[属性]
+删除字段 ALERT TABLE 表名	DROP 字段名
+三 外键: 可以保证数据的完整性, 一个表中可以有多个外键, 有主外键关系的表, 有主键的为主表, 有外键的表为子表
+创建外键一: 在创建字表的同时创建外键
+/*
+# 外键练习
+# 创建年级表(id/年级名称)
+use School;
+create table if not exists grade(
+	gradeid INT(10) primary key auto_increment,
+    gradename varchar(50) not null
+);
+
+# 创建学生信息表(学号, 姓名, 性别, 年级, 手机号, 地址, 出生日期, 邮箱, 身份证号)
+create table if not exists student(
+	studentno int(4) primary key,
+    studentname varchar(20) not null default'匿名',
+    sex tinyint(1) default 1,
+    gradeid int(10),
+    phone varchar(50) not null,
+    address varchar(255),
+    birthday datetime,
+    email varchar(50),
+    identitycard varchar(18) not null,
+    #指定外键 FK_gradeid外键名
+    constraint FK_gradeid foreign key(gradeid) references grade(gradeid)
+);
+*/
+
+创建外键二: 创建字表完毕后修改字表, 创建外键
+/*
+# 外键练习
+# 创建年级表(id/年级名称)
+use School;
+create table if not exists grade(
+	gradeid INT(10) primary key auto_increment,
+    gradename varchar(50) not null
+);
+
+# 创建学生信息表(学号, 姓名, 性别, 年级, 手机号, 地址, 出生日期, 邮箱, 身份证号)
+create table if not exists student(
+	studentno int(4) primary key,
+    studentname varchar(20) not null default'匿名',
+    sex tinyint(1) default 1,
+    gradeid int(10),
+    phone varchar(50) not null,
+    address varchar(255),
+    birthday datetime,
+    email varchar(50),
+    identitycard varchar(18) not null
+    # 指定外键 FK_gradeid外键名
+    # constraint FK_gradeid foreign key(gradeid) references grade(gradeid)
+);
+
+#修改表
+alter table student
+add constraint FK_gradeid foreign key(gradeid) references grade(gradeid)
+ */
+删除表: 删除有子外键关系的表时, 先删除子表, 后删除主表
+删除外键: 删除外键, 同时需要删除索引, 如下
+alter table student drop foreign key FK_gradeid;
+alter table student drop index FK_gradeid;
+
+四 使用语句添加数据(DML 数据操作语言) INSERT (添加数据语句) UPDATE(更新数据语句) DELETE(删除数据语句)
+1 插入 INSERT INTO 表名[(字段一, 字段二,...)] VALUES('值1','值2','值3',...)
+	注意: 字段或值之间用英文逗号隔开
+		 "字段一, 字段二,..."该部分可以省略, 但添加的值务必于表结构数据列顺序相对应, 且数量一致
+		 可同时插入多条数据, values后用英文逗号隔开
+2 修改 UPDATE 表名 SET column_name=value[,column_name2=value2,...][where condition];
+	注意: column_name为要更改的数据列
+		 value 为修改后的数据, 可以为变量, 具体值, 表达式, 或者嵌套SELECT结果
+		 condition为筛选条件, 如不指定, 则修改该表的所有列数据
+3 删除 (1)DELETE FROM 表名 [WHERE CONDITION]
+	注意: condition为筛选条件, 如不指定则删除该表的所有列数据并且插入数据后自增当前值依然从原来基础上进行, 记录日志 
+	   (2)truncate table 表名 删除数据后, 插入的数据自增值会恢复到初始值重新开始,不会记录日志 
+	   
+同样使用delete from清空数据, 重启数据库服务后, 对于InnoDB(存在内存中)的表, 自增列重初始值重新开始, 而MySAM(存在文件中)类型的表, 自增列依然从上一个自赠书基础上开始
+五 DQL(Date Query Language 数据查询语言)
+
+SELECT * FROM 表名 查询表中所有的数据列结果, * 代表所有列, 效率低, 不推荐
+SELECT 列名1,列名2... FROM 表名, 查询所有列, 列名不区分大小写
